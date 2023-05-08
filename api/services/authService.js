@@ -16,7 +16,9 @@ class AuthServices {
 
         const senhasIguais = compare(dto.senha, usuario.senha)
 
-        if(!senhasIguais)
+        if(!senhasIguais){
+            
+        }
     }
 }
 
