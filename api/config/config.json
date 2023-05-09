@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "${process.env.DB_USER}",
-    "password": "${process.env.DB_PASSWORD}",
-    "database": "${process.env.DB_DATABASE}",
-    "host": "${process.env.DB_HOST}",
+    "username": "root",
+    "password": "root",
+    "database": "seguranca_nodejs_development",
+    "host": "localhost",
     "dialect": "mysql",
-    "port": "${process.env.DB_PORT}"
+    "port": 33061
   },
   "test": {
     "username": "postgres",
