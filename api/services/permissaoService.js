@@ -48,7 +48,7 @@ class PermissaoService {
         try {
             await database.permissoes.destroy({
                 where: {
-                    id: id
+                    id: dto.id
                 }
             })
         } catch (error) {
