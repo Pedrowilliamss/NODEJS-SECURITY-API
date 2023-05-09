@@ -3,7 +3,8 @@ const bodyParser = require('body-parser')
 const produto = require('./produtoRoute')
 const usuario = require('./usuariosRoute')
 const auth = require('./authRoute')
-const rouler = require("./rolesRoute")
+const role = require('./rolesRoute')
+const permissao = require('./permissaoRoute')
 
 module.exports = app => {
   app.use(
@@ -11,6 +12,7 @@ module.exports = app => {
     auth,
     usuario,
     produto,
-    rouler
+    role,
+    permissao
   )
 }
