@@ -1,9 +1,9 @@
 const database = require('../models')
 const { compare } = require('bcryptjs')
-const { sing } =require('jsonwebtoken')
+const { sign } = require('jsonwebtoken')
 const jsonScret = require('../config/jsonScret')
 
-class AuthServices {
+class AuthService {
     async login(dto) {
         const usuario = await database.usuarios.findOne({
             attributes: ['id', 'email', 'senha'],
@@ -16,13 +16,13 @@ class AuthServices {
             throw new Error('Usuario não cadastrado')
         }
 
-        const senhasIguais = compare(dto.senha, usuario.senha)
+        const senhasIguais = await compare(dto.senha, usuario.senha)
 
         if(!senhasIguais){
             throw new Error('Usuario ou senha invalido')
         }
 
-        const acessToken = sing({
+        const acessToken = sign({
             id: usuario.id,
             email: usuario.email
         }, jsonScret.secret, {
@@ -33,4 +33,4 @@ class AuthServices {
     }
 }
 
-module.exports = AuthServices
+module.exports = AuthService
